@@ -7,21 +7,45 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A2CD88BAFD3CB7AFD6A2FF5 /* Pods_Commute_Clock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AF13B3EB62CE9A1C39A8FAB /* Pods_Commute_Clock.framework */; };
 		E3124AB41E287236008A2AF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3124AB31E287236008A2AF9 /* AppDelegate.swift */; };
-		E3124AB61E287236008A2AF9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3124AB51E287236008A2AF9 /* ViewController.swift */; };
 		E3124AB91E287236008A2AF9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3124AB71E287236008A2AF9 /* Main.storyboard */; };
 		E3124ABB1E287236008A2AF9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3124ABA1E287236008A2AF9 /* Assets.xcassets */; };
 		E3124ABE1E287236008A2AF9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3124ABC1E287236008A2AF9 /* LaunchScreen.storyboard */; };
+		E3124ACB1E287628008A2AF9 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3124ACA1E287628008A2AF9 /* MainVC.swift */; };
+		E3124ACD1E2877BA008A2AF9 /* AlarmsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3124ACC1E2877BA008A2AF9 /* AlarmsVC.swift */; };
+		E316FB841E2D98CF00A45631 /* SearchTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E316FB831E2D98CF00A45631 /* SearchTableVC.swift */; };
+		E316FB861E2DBF6900A45631 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E316FB851E2DBF6900A45631 /* HomeVC.swift */; };
+		E365839E1E287DE0001E96B8 /* AlarmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E365839D1E287DE0001E96B8 /* AlarmCell.swift */; };
+		E36583A71E2C0B0A001E96B8 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E36583A61E2C0B0A001E96B8 /* MapKit.framework */; };
+		E36583A91E2C0E65001E96B8 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36583A81E2C0E65001E96B8 /* Alarm.swift */; };
+		E36583AC1E2C0FE0001E96B8 /* NewAlarmVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36583AB1E2C0FE0001E96B8 /* NewAlarmVC.swift */; };
+		E36583B01E2C10F1001E96B8 /* ArrivalTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36583AF1E2C10F1001E96B8 /* ArrivalTimeCell.swift */; };
+		E36583B41E2C2D84001E96B8 /* DestinationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36583B31E2C2D84001E96B8 /* DestinationCell.swift */; };
+		E36583B61E2D03D1001E96B8 /* DestinationMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36583B51E2D03D1001E96B8 /* DestinationMapVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		27F148445C27E7883CE5421C /* Pods-Commute Clock.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Commute Clock.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Commute Clock/Pods-Commute Clock.debug.xcconfig"; sourceTree = "<group>"; };
+		6AF13B3EB62CE9A1C39A8FAB /* Pods_Commute_Clock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Commute_Clock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3124AB01E287236008A2AF9 /* Commute Clock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Commute Clock.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3124AB31E287236008A2AF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E3124AB51E287236008A2AF9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E3124AB81E287236008A2AF9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E3124ABA1E287236008A2AF9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E3124ABD1E287236008A2AF9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E3124ABF1E287236008A2AF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E3124ACA1E287628008A2AF9 /* MainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		E3124ACC1E2877BA008A2AF9 /* AlarmsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmsVC.swift; sourceTree = "<group>"; };
+		E316FB831E2D98CF00A45631 /* SearchTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableVC.swift; sourceTree = "<group>"; };
+		E316FB851E2DBF6900A45631 /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		E365839D1E287DE0001E96B8 /* AlarmCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmCell.swift; sourceTree = "<group>"; };
+		E36583A61E2C0B0A001E96B8 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		E36583A81E2C0E65001E96B8 /* Alarm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
+		E36583AB1E2C0FE0001E96B8 /* NewAlarmVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewAlarmVC.swift; sourceTree = "<group>"; };
+		E36583AF1E2C10F1001E96B8 /* ArrivalTimeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrivalTimeCell.swift; sourceTree = "<group>"; };
+		E36583B31E2C2D84001E96B8 /* DestinationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestinationCell.swift; sourceTree = "<group>"; };
+		E36583B51E2D03D1001E96B8 /* DestinationMapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestinationMapVC.swift; sourceTree = "<group>"; };
+		FA362EFDCB5C4ECE98B9BDBD /* Pods-Commute Clock.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Commute Clock.release.xcconfig"; path = "Pods/Target Support Files/Pods-Commute Clock/Pods-Commute Clock.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +53,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E36583A71E2C0B0A001E96B8 /* MapKit.framework in Frameworks */,
+				0A2CD88BAFD3CB7AFD6A2FF5 /* Pods_Commute_Clock.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		19D9B26EBA3F2785C60AEB84 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				27F148445C27E7883CE5421C /* Pods-Commute Clock.debug.xcconfig */,
+				FA362EFDCB5C4ECE98B9BDBD /* Pods-Commute Clock.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		E3124AA71E287235008A2AF9 = {
 			isa = PBXGroup;
 			children = (
 				E3124AB21E287236008A2AF9 /* Commute Clock */,
 				E3124AB11E287236008A2AF9 /* Products */,
+				E36583A51E2C0B0A001E96B8 /* Frameworks */,
+				19D9B26EBA3F2785C60AEB84 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +91,64 @@
 		E3124AB21E287236008A2AF9 /* Commute Clock */ = {
 			isa = PBXGroup;
 			children = (
+				E36583AA1E2C0FC4001E96B8 /* Util */,
+				E3124AC81E2875E5008A2AF9 /* Model */,
+				E3124AC91E2875E9008A2AF9 /* View */,
+				E3124AC71E2875DE008A2AF9 /* Controller */,
 				E3124AB31E287236008A2AF9 /* AppDelegate.swift */,
-				E3124AB51E287236008A2AF9 /* ViewController.swift */,
-				E3124AB71E287236008A2AF9 /* Main.storyboard */,
 				E3124ABA1E287236008A2AF9 /* Assets.xcassets */,
+				E3124AB71E287236008A2AF9 /* Main.storyboard */,
 				E3124ABC1E287236008A2AF9 /* LaunchScreen.storyboard */,
 				E3124ABF1E287236008A2AF9 /* Info.plist */,
 			);
 			path = "Commute Clock";
+			sourceTree = "<group>";
+		};
+		E3124AC71E2875DE008A2AF9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E3124ACA1E287628008A2AF9 /* MainVC.swift */,
+				E3124ACC1E2877BA008A2AF9 /* AlarmsVC.swift */,
+				E36583AB1E2C0FE0001E96B8 /* NewAlarmVC.swift */,
+				E36583B51E2D03D1001E96B8 /* DestinationMapVC.swift */,
+				E316FB831E2D98CF00A45631 /* SearchTableVC.swift */,
+				E316FB851E2DBF6900A45631 /* HomeVC.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		E3124AC81E2875E5008A2AF9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E36583A81E2C0E65001E96B8 /* Alarm.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		E3124AC91E2875E9008A2AF9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E365839D1E287DE0001E96B8 /* AlarmCell.swift */,
+				E36583AF1E2C10F1001E96B8 /* ArrivalTimeCell.swift */,
+				E36583B31E2C2D84001E96B8 /* DestinationCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		E36583A51E2C0B0A001E96B8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E36583A61E2C0B0A001E96B8 /* MapKit.framework */,
+				6AF13B3EB62CE9A1C39A8FAB /* Pods_Commute_Clock.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E36583AA1E2C0FC4001E96B8 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +158,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E3124AC21E287236008A2AF9 /* Build configuration list for PBXNativeTarget "Commute Clock" */;
 			buildPhases = (
+				5EC89A1D5DF3DE07D9BF1D7A /* [CP] Check Pods Manifest.lock */,
 				E3124AAC1E287235008A2AF9 /* Sources */,
 				E3124AAD1E287235008A2AF9 /* Frameworks */,
 				E3124AAE1E287235008A2AF9 /* Resources */,
+				B7BF9761B212AE6E618E9CC6 /* [CP] Embed Pods Frameworks */,
+				72940EDE79CB2C0DE9B5F88D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -132,13 +222,70 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5EC89A1D5DF3DE07D9BF1D7A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		72940EDE79CB2C0DE9B5F88D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Commute Clock/Pods-Commute Clock-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B7BF9761B212AE6E618E9CC6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Commute Clock/Pods-Commute Clock-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E3124AAC1E287235008A2AF9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3124AB61E287236008A2AF9 /* ViewController.swift in Sources */,
+				E36583B01E2C10F1001E96B8 /* ArrivalTimeCell.swift in Sources */,
 				E3124AB41E287236008A2AF9 /* AppDelegate.swift in Sources */,
+				E36583B41E2C2D84001E96B8 /* DestinationCell.swift in Sources */,
+				E36583B61E2D03D1001E96B8 /* DestinationMapVC.swift in Sources */,
+				E36583AC1E2C0FE0001E96B8 /* NewAlarmVC.swift in Sources */,
+				E316FB841E2D98CF00A45631 /* SearchTableVC.swift in Sources */,
+				E3124ACD1E2877BA008A2AF9 /* AlarmsVC.swift in Sources */,
+				E36583A91E2C0E65001E96B8 /* Alarm.swift in Sources */,
+				E316FB861E2DBF6900A45631 /* HomeVC.swift in Sources */,
+				E3124ACB1E287628008A2AF9 /* MainVC.swift in Sources */,
+				E365839E1E287DE0001E96B8 /* AlarmCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,6 +404,7 @@
 		};
 		E3124AC31E287236008A2AF9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 27F148445C27E7883CE5421C /* Pods-Commute Clock.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 4Q7UMUTU9B;
@@ -270,6 +418,7 @@
 		};
 		E3124AC41E287236008A2AF9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA362EFDCB5C4ECE98B9BDBD /* Pods-Commute Clock.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 4Q7UMUTU9B;
@@ -300,6 +449,7 @@
 				E3124AC41E287236008A2AF9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -9,6 +9,18 @@
 import UIKit
 
 class AlarmCell: UITableViewCell {
+	
+	@IBOutlet weak var timeLabel: UILabel!
+	@IBOutlet weak var amPmLabel: UILabel!
+	@IBOutlet weak var repeatDaysLabel: UILabel!
+	@IBOutlet weak var destinationLabel: UILabel!
+	@IBOutlet weak var addressLabel: UILabel!
+	@IBOutlet weak var townLabel: UILabel!
+	@IBOutlet weak var bikeImage: UIImageView!
+	@IBOutlet weak var carImage: UIImageView!
+	@IBOutlet weak var walkImage: UIImageView!
+	@IBOutlet weak var prepTimeLabel: UILabel!
+	
 
     override func awakeFromNib() {
         super.awakeFromNib()

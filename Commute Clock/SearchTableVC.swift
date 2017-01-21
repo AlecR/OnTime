@@ -1,5 +1,5 @@
 //
-//  SearchResultsTableVC.swift
+//  SearchTableVC.swift
 //  Commute Clock
 //
 //  Created by Alec Rodgers on 1/16/17.
@@ -9,7 +9,7 @@
 import UIKit
 import GooglePlaces
 
-class SearchResultsTableVC: GMSAutocompleteResultsViewController {
+class SearchTableVC: GMSAutocompleteResultsViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
