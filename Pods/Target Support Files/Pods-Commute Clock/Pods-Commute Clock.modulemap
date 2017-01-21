@@ -1,0 +1,6 @@
+framework module Pods_Commute_Clock {
+  umbrella header "Pods-Commute Clock-umbrella.h"
+
+  export *
+  module * { export * }
+}
