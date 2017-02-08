@@ -10,6 +10,15 @@ import UIKit
 import MapKit
 import GooglePlaces
 
+enum TransportationType {
+    case Car
+    case Walking
+    case Transit
+}
+
+protocol DestinationMapVCDelegate {
+    func acceptDestinationData(destination: GMSPlace!, transportation: TransportationType)
+}
 
 class DestinationMapVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, GMSAutocompleteResultsViewControllerDelegate {
 	
@@ -26,6 +35,9 @@ class DestinationMapVC: UIViewController, MKMapViewDelegate, CLLocationManagerDe
 	
 	
 	/* Variables */
+    
+    var delegate: DestinationMapVCDelegate?
+    var data: AnyObject?
 	
 	var transportImages: [UIImageView] = []
 	
@@ -47,6 +59,7 @@ class DestinationMapVC: UIViewController, MKMapViewDelegate, CLLocationManagerDe
 	}
 	
 	var selectedDestination: GMSPlace?
+    var selectedTransportation: TransportationType = .Car
 	
 	
 	
@@ -68,9 +81,14 @@ class DestinationMapVC: UIViewController, MKMapViewDelegate, CLLocationManagerDe
 		resultSearchController = UISearchController(searchResultsController: autocompleteController)
 		resultSearchController?.searchResultsUpdater = autocompleteController
 		
+        
 		let searchBar = resultSearchController?.searchBar
 		searchBar?.sizeToFit()
 		searchBar?.placeholder = "Search for your destination"
+        
+        // BUG: Search bar cancel button is not getting hidden
+        searchBar?.showsCancelButton = false
+        
 		navigationItem.titleView = resultSearchController?.searchBar
 		
 		navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back ", style: .plain, target: self, action: #selector(back))
@@ -97,23 +115,42 @@ class DestinationMapVC: UIViewController, MKMapViewDelegate, CLLocationManagerDe
 	
 	@IBAction func transportationTapped(recognizer: UITapGestureRecognizer) {
 		let transportTypes = ["Car", "Walking", "Transit"]
-		let tappedTag = recognizer.view?.tag
-		
-		print(transportTypes[tappedTag!])
-		
-		for num in 0..<transportTypes.count {
-			if tappedTag == num {
-				transportImages[num].alpha = 1
-				transportTypeLabel.text = transportTypes[num]
-			} else {
-				transportImages[num].alpha = 0.3
-			}
-		}
-		
+        if let tappedTag = recognizer.view?.tag {
+            for num in 0..<transportTypes.count {
+                if tappedTag == num {
+                    switch tappedTag {
+                    case 0:
+                        selectedTransportation = .Car
+                    case 1:
+                        selectedTransportation = .Walking
+                    case 2:
+                        selectedTransportation = .Transit
+                    default:
+                        selectedTransportation = .Car
+                    }
+                
+                    transportImages[num].alpha = 1
+                    transportTypeLabel.text = transportTypes[num]
+                } else {
+                    transportImages[num].alpha = 0.3
+                }
+            }
+        }
 	}
 	
 	@IBAction func confirmTapped(_ sender: Any) {
-		
+        if let destination = selectedDestination {
+            self.delegate?.acceptDestinationData(destination: destination, transportation: selectedTransportation)
+            self.dismiss(animated: true, completion: nil)
+        } else {
+            let alert: UIAlertController = UIAlertController(title: "No Destination Selected", message: "Select a destination to continue.", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(okAction)
+            
+            self.present(alert, animated: true, completion: nil)
+            
+        }
+        
 	}
 	
 	/* 

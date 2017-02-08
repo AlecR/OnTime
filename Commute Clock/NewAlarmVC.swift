@@ -7,15 +7,18 @@
 //
 
 import UIKit
+import GooglePlaces
 
-class NewAlarmVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class NewAlarmVC: UIViewController, UITableViewDelegate, UITableViewDataSource, DestinationMapVCDelegate {
 
 	@IBOutlet weak var timePicker: UIDatePicker!
 	@IBOutlet weak var tableView: UITableView!
 	
 	var pickerTime: String = ""
-	
-	
+    
+    var arrivalTimeCell: ArrivalTimeCell?
+    var destinationCell: DestinationCell?
+    var prepTimeCell: PrepTimeCell?
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,25 +47,44 @@ class NewAlarmVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		if indexPath.row == 0 {
-			if let cell = tableView.dequeueReusableCell(withIdentifier: "ArrivalTimeCell") as? ArrivalTimeCell {
-				cell.arrivalTime.text = pickerTime
-				return cell
-			}
-		} else if indexPath.row == 1 {
-			if let cell = tableView.dequeueReusableCell(withIdentifier: "DestinationCell") as? DestinationCell {
-				return cell
-			}
-		}
-		return UITableViewCell()
+        let cellMap = ["ArrivalTimeCell", "DestinationCell", "PrepTimeCell"]
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellMap[indexPath.row], for: indexPath)
+
+        switch cell {
+        case let cell as ArrivalTimeCell:
+            cell.arrivalTime.text = pickerTime
+            return cell
+            
+        case let cell as DestinationCell:
+            return cell
+            
+        case let cell as PrepTimeCell:
+            return cell
+            
+        default: break
+        }
+        return cell
+        
 	}
+        
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		if indexPath.row == 1 {
 			let destinationMapNav = self.storyboard?.instantiateViewController(withIdentifier: "DestinationMapNavVC") as! UINavigationController
+            let destinationMapVC = destinationMapNav.viewControllers.first as! DestinationMapVC
+            destinationMapVC.delegate = self
+            
 			self.present(destinationMapNav, animated: true, completion: nil)
-		}
+        }
 	}
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 1 {
+            return 80
+        } else {
+            return UITableViewAutomaticDimension
+        }
+    }
 	
 	/*
 	*****************************
@@ -76,13 +98,26 @@ class NewAlarmVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 		dateFormatter.dateFormat = "h:mm a"
 		dateFormatter.amSymbol = "AM"
 		dateFormatter.pmSymbol = "PM"
-		
-		
-		print(timePicker.date)
+
 		pickerTime = dateFormatter.string(from: timePicker.date)
 		tableView.reloadData()
 		
 	}
+    
+    /*
+     *****************************
+     DestinationMapVCDelegate Functions
+     *****************************
+     */
+    
+    func acceptDestinationData(destination: GMSPlace!, transportation: TransportationType) {
+        if let destinationCell = tableView.cellForRow(at: IndexPath(row: 1, section: 0)) as? DestinationCell {
+            destinationCell.updateDestinationCellText(location: destination.name)
+            destinationCell.setSelectedTransportation(transportation: transportation)
+        }
+        
+        
+    }
 	
 	
 
