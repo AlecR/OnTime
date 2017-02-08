@@ -7,9 +7,18 @@
 //
 
 import Foundation
+import GooglePlaces
 
 class Alarm {
 	
-	
+    var prepTime: Int!
+    var destination: GMSPlace
+    var arrivalTime: Int!
+    
+    init(prepTime: Int, destination: GMSPlace, arrivalTime: Int) {
+        self.prepTime = prepTime
+        self.destination = destination
+        self.arrivalTime = arrivalTime
+    }
 	
 }

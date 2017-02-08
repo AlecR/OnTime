@@ -16,6 +16,7 @@
 		E3124ACD1E2877BA008A2AF9 /* AlarmsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3124ACC1E2877BA008A2AF9 /* AlarmsVC.swift */; };
 		E316FB841E2D98CF00A45631 /* SearchTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E316FB831E2D98CF00A45631 /* SearchTableVC.swift */; };
 		E316FB861E2DBF6900A45631 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E316FB851E2DBF6900A45631 /* HomeVC.swift */; };
+		E3208DF01E38E6B20022A245 /* PrepTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3208DEF1E38E6B20022A245 /* PrepTimeCell.swift */; };
 		E365839E1E287DE0001E96B8 /* AlarmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E365839D1E287DE0001E96B8 /* AlarmCell.swift */; };
 		E36583A71E2C0B0A001E96B8 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E36583A61E2C0B0A001E96B8 /* MapKit.framework */; };
 		E36583A91E2C0E65001E96B8 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36583A81E2C0E65001E96B8 /* Alarm.swift */; };
@@ -38,6 +39,7 @@
 		E3124ACC1E2877BA008A2AF9 /* AlarmsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmsVC.swift; sourceTree = "<group>"; };
 		E316FB831E2D98CF00A45631 /* SearchTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableVC.swift; sourceTree = "<group>"; };
 		E316FB851E2DBF6900A45631 /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		E3208DEF1E38E6B20022A245 /* PrepTimeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrepTimeCell.swift; sourceTree = "<group>"; };
 		E365839D1E287DE0001E96B8 /* AlarmCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmCell.swift; sourceTree = "<group>"; };
 		E36583A61E2C0B0A001E96B8 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		E36583A81E2C0E65001E96B8 /* Alarm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				E365839D1E287DE0001E96B8 /* AlarmCell.swift */,
 				E36583AF1E2C10F1001E96B8 /* ArrivalTimeCell.swift */,
 				E36583B31E2C2D84001E96B8 /* DestinationCell.swift */,
+				E3208DEF1E38E6B20022A245 /* PrepTimeCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				E316FB861E2DBF6900A45631 /* HomeVC.swift in Sources */,
 				E3124ACB1E287628008A2AF9 /* MainVC.swift in Sources */,
 				E365839E1E287DE0001E96B8 /* AlarmCell.swift in Sources */,
+				E3208DF01E38E6B20022A245 /* PrepTimeCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
