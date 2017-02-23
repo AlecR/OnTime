@@ -9,5 +9,7 @@ target 'Commute Clock' do
   pod 'GooglePlaces'
   pod 'GooglePlacePicker'
   pod 'GoogleMaps'
+  pod 'Firebase/Core'
+  pod 'Firebase/Database'
 
 end

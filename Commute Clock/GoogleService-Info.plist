@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>903319663451-4p5acsphea0jncqk98ep7jhgi808q7vn.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.903319663451-4p5acsphea0jncqk98ep7jhgi808q7vn</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAty7vVtVhSAsduvUHbf28w35qXeOH8018</string>
+	<key>GCM_SENDER_ID</key>
+	<string>903319663451</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.alecordgers.Commute-Clock</string>
+	<key>PROJECT_ID</key>
+	<string>on-time-9faaa</string>
+	<key>STORAGE_BUCKET</key>
+	<string>on-time-9faaa.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:903319663451:ios:b8c419e6b15fbb02</string>
+	<key>DATABASE_URL</key>
+	<string>https://on-time-9faaa.firebaseio.com</string>
+</dict>
+</plist>

@@ -117,7 +117,7 @@
                                             <outlet property="arrivalTime" destination="gI0-Ey-wn2" id="aBX-3a-L87"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DestinationCell" rowHeight="80" id="MTG-my-rt4" customClass="DestinationCell" customModule="Commute_Clock">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DestinationCell" rowHeight="80" id="MTG-my-rt4" customClass="DestinationCell" customModule="Commute_Clock">
                                         <rect key="frame" x="0.0" y="72" width="320" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MTG-my-rt4" id="qdS-Vw-53M">
@@ -196,10 +196,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="0F9-KF-gCh">
-                                                    <rect key="frame" x="8" y="10.5" width="160" height="23.5"/>
+                                                    <rect key="frame" x="8" y="10" width="160" height="24"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prep Time (minutes):" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5s7-dx-ZIH">
-                                                            <rect key="frame" x="0.0" y="0.0" width="160" height="23.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="160" height="24"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="160" id="hWf-Jl-XeB"/>
                                                             </constraints>
@@ -226,6 +226,9 @@
                                                 <constraint firstItem="7zV-RY-kG0" firstAttribute="centerY" secondItem="5s7-dx-ZIH" secondAttribute="centerY" id="pGm-vc-DuQ"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="prepTimeInput" destination="7zV-RY-kG0" id="S6A-uI-sTO"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -239,6 +242,9 @@
                                             <constraint firstAttribute="height" constant="30" id="o1Z-nT-z0I"/>
                                         </constraints>
                                         <state key="normal" title="Create Alarm"/>
+                                        <connections>
+                                            <action selector="createAlarmPressed:" destination="Z6Q-Wv-9At" eventType="touchUpInside" id="hI1-CW-Gvz"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -803,14 +809,14 @@
                                         <connections>
                                             <outlet property="addressLabel" destination="37x-Je-44Q" id="Qxu-hy-k9e"/>
                                             <outlet property="amPmLabel" destination="tq0-58-Y7Q" id="Kxp-Pn-J98"/>
-                                            <outlet property="bikeImage" destination="dn3-0a-527" id="cey-ay-dv1"/>
-                                            <outlet property="carImage" destination="1Dg-ge-iOw" id="BR3-SM-PUy"/>
+                                            <outlet property="carImage" destination="dn3-0a-527" id="Czk-eS-6Ak"/>
                                             <outlet property="destinationLabel" destination="XDD-GO-As8" id="6rd-4S-Frq"/>
                                             <outlet property="prepTimeLabel" destination="Dwd-7F-baK" id="9cd-pA-XJy"/>
                                             <outlet property="repeatDaysLabel" destination="dsF-PI-Xae" id="NwL-K5-cYQ"/>
                                             <outlet property="timeLabel" destination="YyD-hF-iUY" id="EJP-if-8WZ"/>
                                             <outlet property="townLabel" destination="qo5-ZM-8Eh" id="Ls5-hq-Evz"/>
-                                            <outlet property="walkImage" destination="BTz-a4-hsR" id="mes-aH-M2z"/>
+                                            <outlet property="transitImage" destination="BTz-a4-hsR" id="nAg-4w-c1x"/>
+                                            <outlet property="walkImage" destination="1Dg-ge-iOw" id="ekz-ot-j8V"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

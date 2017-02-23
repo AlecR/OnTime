@@ -10,6 +10,8 @@ import UIKit
 
 class PrepTimeCell: UITableViewCell {
 
+    @IBOutlet weak var prepTimeInput: UITextField!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = .none

@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import GooglePlaces
 
-enum TransportationType {
+enum TransportationType: String {
     case Car
     case Walking
     case Transit
@@ -24,6 +24,7 @@ class DestinationMapVC: UIViewController, MKMapViewDelegate, CLLocationManagerDe
 	
 	/* Outlets */
 	@IBOutlet weak var mapView: MKMapView!
+
 	
 	@IBOutlet weak var carImage: UIImageView!
 	@IBOutlet weak var walkingImage: UIImageView!
@@ -86,7 +87,7 @@ class DestinationMapVC: UIViewController, MKMapViewDelegate, CLLocationManagerDe
 		searchBar?.sizeToFit()
 		searchBar?.placeholder = "Search for your destination"
         
-        // BUG: Search bar cancel button is not getting hidden
+        //FIXME: Search bar cancel button is not getting hidden
         searchBar?.showsCancelButton = false
         
 		navigationItem.titleView = resultSearchController?.searchBar

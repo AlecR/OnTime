@@ -8,6 +8,7 @@
 
 import UIKit
 import GooglePlaces
+import FirebaseDatabase
 
 class NewAlarmVC: UIViewController, UITableViewDelegate, UITableViewDataSource, DestinationMapVCDelegate {
 
@@ -16,18 +17,24 @@ class NewAlarmVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
 	
 	var pickerTime: String = ""
     
-    var arrivalTimeCell: ArrivalTimeCell?
-    var destinationCell: DestinationCell?
-    var prepTimeCell: PrepTimeCell?
+    var selectedDestination: GMSPlace?
+    var selectedTranspotation: TransportationType?
+    
+    var databaseRef: FIRDatabaseReference!
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         tableView.delegate = self
 		tableView.dataSource = self
 		
 		timePicker.datePickerMode = .time
 		timePicker.addTarget(self, action: #selector(NewAlarmVC.timePickerChanged(timePicker:)), for: .valueChanged)
+        
+        databaseRef = FIRDatabase.database().reference()
+        
+        // Sets intial value for ArrivalTimeCell
+        timePickerChanged(timePicker: timePicker)
 		
     }
 	
@@ -54,7 +61,7 @@ class NewAlarmVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         case let cell as ArrivalTimeCell:
             cell.arrivalTime.text = pickerTime
             return cell
-            
+    
         case let cell as DestinationCell:
             return cell
             
@@ -98,11 +105,17 @@ class NewAlarmVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
 		dateFormatter.dateFormat = "h:mm a"
 		dateFormatter.amSymbol = "AM"
 		dateFormatter.pmSymbol = "PM"
-
+        
 		pickerTime = dateFormatter.string(from: timePicker.date)
-		tableView.reloadData()
+        
+        if let arrivalTimeCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? ArrivalTimeCell {
+            arrivalTimeCell.updateArrivalTime(timeString: pickerTime)
+        }
+
 		
 	}
+    
+    
     
     /*
      *****************************
@@ -111,14 +124,56 @@ class NewAlarmVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
      */
     
     func acceptDestinationData(destination: GMSPlace!, transportation: TransportationType) {
+        selectedDestination = destination
         if let destinationCell = tableView.cellForRow(at: IndexPath(row: 1, section: 0)) as? DestinationCell {
             destinationCell.updateDestinationCellText(location: destination.name)
             destinationCell.setSelectedTransportation(transportation: transportation)
+            selectedTranspotation = transportation
+        }
+    }
+	
+    /*
+     *****************************
+     @IBAction Functionns
+     *****************************
+     */
+    
+    @IBAction func createAlarmPressed(_ sender: Any) {
+        
+        var arrivalTime: Int
+        var location: GMSPlace
+        
+        if let arrivalTimeMinutes = Helper.timeToMinutes(selectedTime: pickerTime) {
+            arrivalTime = arrivalTimeMinutes
+            
+            if selectedDestination == nil {
+                let alert: UIAlertController = UIAlertController(title: "No Destiantion Selected", message: "Select a destination to continue.", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alert.addAction(okAction)
+                self.present(alert, animated: true, completion: nil)
+            }else {
+                location = selectedDestination!
+                if let prepTimeCellInput = ((tableView.cellForRow(at: IndexPath(row: 2, section: 0))) as? PrepTimeCell)?.prepTimeInput.text {
+                    if let prepTime = Int(prepTimeCellInput) {
+                        let newAlarm = Alarm(prepTime: prepTime, destination: location, arrivalTime: arrivalTime, transportationType: selectedTranspotation!.rawValue)
+                        newAlarm.saveAlarmToDatabase(ref: databaseRef)
+                    } else {
+                        displayAlert(title: "Invalid Prep Time", message: "Invalid prep time inputted. Input a number to continue.", buttonText: "OK")
+                    }
+                } else {
+                    displayAlert(title: "No Prep Time Inputted", message: "Input your prep time to continue.", buttonText: "OK")
+                }
+            }
+        } else {
+            displayAlert(title: "No Arrival Time Selected", message: "Select an arrival time to continue", buttonText: "OK")
         }
         
         
+        
+        
+        
+       
     }
 	
-	
-
+    
 }
