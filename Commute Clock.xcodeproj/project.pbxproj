@@ -17,6 +17,7 @@
 		E316FB841E2D98CF00A45631 /* SearchTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E316FB831E2D98CF00A45631 /* SearchTableVC.swift */; };
 		E316FB861E2DBF6900A45631 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E316FB851E2DBF6900A45631 /* HomeVC.swift */; };
 		E3208DF01E38E6B20022A245 /* PrepTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3208DEF1E38E6B20022A245 /* PrepTimeCell.swift */; };
+		E35D85A31E5E9BC5007125F4 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35D85A21E5E9BC5007125F4 /* Helper.swift */; };
 		E365839E1E287DE0001E96B8 /* AlarmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E365839D1E287DE0001E96B8 /* AlarmCell.swift */; };
 		E36583A71E2C0B0A001E96B8 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E36583A61E2C0B0A001E96B8 /* MapKit.framework */; };
 		E36583A91E2C0E65001E96B8 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36583A81E2C0E65001E96B8 /* Alarm.swift */; };
@@ -24,6 +25,9 @@
 		E36583B01E2C10F1001E96B8 /* ArrivalTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36583AF1E2C10F1001E96B8 /* ArrivalTimeCell.swift */; };
 		E36583B41E2C2D84001E96B8 /* DestinationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36583B31E2C2D84001E96B8 /* DestinationCell.swift */; };
 		E36583B61E2D03D1001E96B8 /* DestinationMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36583B51E2D03D1001E96B8 /* DestinationMapVC.swift */; };
+		E3AFA6551E4CD20800AF94F1 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AFA6541E4CD20800AF94F1 /* UIViewControllerExtensions.swift */; };
+		E3D19A251E4C0644001A0303 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3D19A241E4C0644001A0303 /* GoogleService-Info.plist */; };
+		E3D19A271E4C1B74001A0303 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D19A261E4C1B74001A0303 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +44,7 @@
 		E316FB831E2D98CF00A45631 /* SearchTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableVC.swift; sourceTree = "<group>"; };
 		E316FB851E2DBF6900A45631 /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		E3208DEF1E38E6B20022A245 /* PrepTimeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrepTimeCell.swift; sourceTree = "<group>"; };
+		E35D85A21E5E9BC5007125F4 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		E365839D1E287DE0001E96B8 /* AlarmCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmCell.swift; sourceTree = "<group>"; };
 		E36583A61E2C0B0A001E96B8 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		E36583A81E2C0E65001E96B8 /* Alarm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
@@ -47,6 +52,9 @@
 		E36583AF1E2C10F1001E96B8 /* ArrivalTimeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrivalTimeCell.swift; sourceTree = "<group>"; };
 		E36583B31E2C2D84001E96B8 /* DestinationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestinationCell.swift; sourceTree = "<group>"; };
 		E36583B51E2D03D1001E96B8 /* DestinationMapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestinationMapVC.swift; sourceTree = "<group>"; };
+		E3AFA6541E4CD20800AF94F1 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
+		E3D19A241E4C0644001A0303 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E3D19A261E4C1B74001A0303 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FA362EFDCB5C4ECE98B9BDBD /* Pods-Commute Clock.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Commute Clock.release.xcconfig"; path = "Pods/Target Support Files/Pods-Commute Clock/Pods-Commute Clock.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -102,6 +110,7 @@
 				E3124AB71E287236008A2AF9 /* Main.storyboard */,
 				E3124ABC1E287236008A2AF9 /* LaunchScreen.storyboard */,
 				E3124ABF1E287236008A2AF9 /* Info.plist */,
+				E3D19A241E4C0644001A0303 /* GoogleService-Info.plist */,
 			);
 			path = "Commute Clock";
 			sourceTree = "<group>";
@@ -150,6 +159,9 @@
 		E36583AA1E2C0FC4001E96B8 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				E3D19A261E4C1B74001A0303 /* Constants.swift */,
+				E3AFA6541E4CD20800AF94F1 /* UIViewControllerExtensions.swift */,
+				E35D85A21E5E9BC5007125F4 /* Helper.swift */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -218,6 +230,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3124ABE1E287236008A2AF9 /* LaunchScreen.storyboard in Resources */,
+				E3D19A251E4C0644001A0303 /* GoogleService-Info.plist in Resources */,
 				E3124ABB1E287236008A2AF9 /* Assets.xcassets in Resources */,
 				E3124AB91E287236008A2AF9 /* Main.storyboard in Resources */,
 			);
@@ -280,11 +293,14 @@
 			files = (
 				E36583B01E2C10F1001E96B8 /* ArrivalTimeCell.swift in Sources */,
 				E3124AB41E287236008A2AF9 /* AppDelegate.swift in Sources */,
+				E35D85A31E5E9BC5007125F4 /* Helper.swift in Sources */,
 				E36583B41E2C2D84001E96B8 /* DestinationCell.swift in Sources */,
 				E36583B61E2D03D1001E96B8 /* DestinationMapVC.swift in Sources */,
 				E36583AC1E2C0FE0001E96B8 /* NewAlarmVC.swift in Sources */,
 				E316FB841E2D98CF00A45631 /* SearchTableVC.swift in Sources */,
+				E3AFA6551E4CD20800AF94F1 /* UIViewControllerExtensions.swift in Sources */,
 				E3124ACD1E2877BA008A2AF9 /* AlarmsVC.swift in Sources */,
+				E3D19A271E4C1B74001A0303 /* Constants.swift in Sources */,
 				E36583A91E2C0E65001E96B8 /* Alarm.swift in Sources */,
 				E316FB861E2DBF6900A45631 /* HomeVC.swift in Sources */,
 				E3124ACB1E287628008A2AF9 /* MainVC.swift in Sources */,

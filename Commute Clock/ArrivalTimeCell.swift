@@ -21,5 +21,9 @@ class ArrivalTimeCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
     }
+    
+    func updateArrivalTime(timeString: String) {
+        arrivalTime.text = timeString
+    }
 
 }
