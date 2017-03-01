@@ -22,5 +22,9 @@ class PrepTimeCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func resetCell() {
+        prepTimeInput.text = ""
+    }
 
 }

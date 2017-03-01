@@ -25,5 +25,5 @@ class ArrivalTimeCell: UITableViewCell {
     func updateArrivalTime(timeString: String) {
         arrivalTime.text = timeString
     }
-
+    
 }

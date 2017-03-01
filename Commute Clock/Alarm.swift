@@ -8,8 +8,6 @@
 
 import Foundation
 import GooglePlaces
-import FirebaseDatabase
-import Firebase
 
 class Alarm {
 	
@@ -17,6 +15,7 @@ class Alarm {
     private var _destination: GMSPlace
     private var _arrivalTime: Int!
     private var _transportationType: String!
+    private var _activeDays: [Bool]
     
     var prepTime: Int! {
         return _prepTime
@@ -34,26 +33,22 @@ class Alarm {
         return _transportationType
     }
     
-    init(prepTime: Int, destination: GMSPlace, arrivalTime: Int, transportationType: String) {
+    func setActiveDays(days: [Bool]) {
+        if days.count == 7 {
+            _activeDays = days
+        }
+    }
+    
+    var activeDays: [Bool] {
+        return _activeDays
+    }
+    
+    init(prepTime: Int, destination: GMSPlace, arrivalTime: Int, transportationType: String, activeDays: [Bool]) {
         self._prepTime = prepTime
         self._destination = destination
         self._arrivalTime = arrivalTime
         self._transportationType = transportationType
+        self._activeDays = activeDays
     }
-	
-    
-    func saveAlarmToDatabase(ref: FIRDatabaseReference) {
-        let alarmId = ref.child("users/\(USER_UUID)").childByAutoId()
-        alarmId.child("arrivalTime").setValue(arrivalTime)
-        alarmId.child("prepTime").setValue(prepTime)
-        alarmId.child("transportation").setValue(transportationType)
-        
-        let locationData = alarmId.child("location")
-        locationData.child("latitude").setValue(destination.coordinate.latitude)
-        locationData.child("longitude").setValue(destination.coordinate.longitude)
-        locationData.child("address").setValue(destination.formattedAddress)
-        locationData.child("name").setValue(destination.name)
-    }
-
     
 }

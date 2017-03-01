@@ -19,8 +19,6 @@ class NewAlarmVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     
     var selectedDestination: GMSPlace?
     var selectedTranspotation: TransportationType?
-    
-    var databaseRef: FIRDatabaseReference!
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,10 +29,11 @@ class NewAlarmVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
 		timePicker.datePickerMode = .time
 		timePicker.addTarget(self, action: #selector(NewAlarmVC.timePickerChanged(timePicker:)), for: .valueChanged)
         
-        databaseRef = FIRDatabase.database().reference()
-        
         // Sets intial value for ArrivalTimeCell
         timePickerChanged(timePicker: timePicker)
+        
+        let notificationName = Notification.Name("toHome")
+        NotificationCenter.default.addObserver(self, selector: #selector(self.toHome), name: notificationName, object: nil)
 		
     }
 	
@@ -61,13 +60,10 @@ class NewAlarmVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         case let cell as ArrivalTimeCell:
             cell.arrivalTime.text = pickerTime
             return cell
-    
         case let cell as DestinationCell:
             return cell
-            
         case let cell as PrepTimeCell:
             return cell
-            
         default: break
         }
         return cell
@@ -155,8 +151,8 @@ class NewAlarmVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
                 location = selectedDestination!
                 if let prepTimeCellInput = ((tableView.cellForRow(at: IndexPath(row: 2, section: 0))) as? PrepTimeCell)?.prepTimeInput.text {
                     if let prepTime = Int(prepTimeCellInput) {
-                        let newAlarm = Alarm(prepTime: prepTime, destination: location, arrivalTime: arrivalTime, transportationType: selectedTranspotation!.rawValue)
-                        newAlarm.saveAlarmToDatabase(ref: databaseRef)
+                        let newAlarm = Alarm(prepTime: prepTime, destination: location, arrivalTime: arrivalTime, transportationType: selectedTranspotation!.rawValue, activeDays: [])
+                        performSegue(withIdentifier: "toNewAlarmDays", sender: newAlarm)
                     } else {
                         displayAlert(title: "Invalid Prep Time", message: "Invalid prep time inputted. Input a number to continue.", buttonText: "OK")
                     }
@@ -167,12 +163,40 @@ class NewAlarmVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         } else {
             displayAlert(title: "No Arrival Time Selected", message: "Select an arrival time to continue", buttonText: "OK")
         }
-        
-        
-        
-        
-        
        
+    }
+    
+    /*
+     *****************************
+     Segue Functions
+     *****************************
+     */
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toNewAlarmDays" {
+            if let destination = segue.destination as? NewAlarmDaysVC, let alarm = sender as? Alarm {
+                destination.newAlarm = alarm
+            }
+        }
+    }
+    
+    // Clears all inputs and goes to home tab. Used after an alarm is created.
+    func toHome() {
+
+        if let destinationCell = tableView.cellForRow(at: IndexPath(row: 1, section: 0)) as? DestinationCell {
+            destinationCell.resetCell()
+        }
+        if let prepTimeCell = tableView.cellForRow(at: IndexPath(row: 2, section: 0)) as? PrepTimeCell {
+            prepTimeCell.resetCell()
+        }
+        
+        
+        selectedDestination = nil
+        selectedTranspotation = nil
+        timePicker.setDate(Date(), animated: false)
+        timePickerChanged(timePicker: timePicker)
+        
+        tabBarController?.selectedIndex = 0
     }
 	
     
