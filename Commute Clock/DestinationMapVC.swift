@@ -203,6 +203,7 @@ class DestinationMapVC: UIViewController, MKMapViewDelegate, CLLocationManagerDe
 		destinationString = place.name
 		addressString = place.formattedAddress!
 		selectedDestination = place
+        
 		mapView.addAnnotation(annotation)
 		
 	}

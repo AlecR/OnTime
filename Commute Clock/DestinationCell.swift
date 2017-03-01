@@ -32,6 +32,13 @@ class DestinationCell: UITableViewCell {
         destinationLabel.text = location
     }
     
+    func resetCell() {
+        destinationLabel.text = ""
+        for image in transportationImages {
+            image.alpha = 0.3
+        }
+    }
+    
     func setSelectedTransportation(transportation: TransportationType) {
         for image in transportationImages {
             image.alpha = 0.3
