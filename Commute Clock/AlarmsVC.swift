@@ -25,16 +25,25 @@ class AlarmsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             
             var alarms = [FIRDataSnapshot]()
             
-            
             for data in snapshot.children {
                 alarms.append(data as! FIRDataSnapshot)
             }
             
+            // Sorts alarms by time (early to late)
+            alarms.sort { $1.childSnapshot(forPath: "arrivalTime").value as! Int > $0.childSnapshot(forPath: "arrivalTime").value as! Int }
+
+            
             self.alarmData = alarms
             self.tableView.reloadData()
             
+            NotificationCenter.default.addObserver(self, selector: #selector(self.displayAlarmCreated), name: Notification.Name.Names.DisplayCreatedAlarmMessage, object: nil)
+            
         })
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        displayAlarmCreated()
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,6 +51,12 @@ class AlarmsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         // Dispose of any resources that can be recreated.
     }
 	
+    /*
+     *****************************
+     UITableView Functions
+     *****************************
+     */
+    
 	func numberOfSections(in tableView: UITableView) -> Int {
 		return 1
 	}
@@ -80,7 +95,6 @@ class AlarmsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             }
             
             if let activeDays = data.childSnapshot(forPath: "daysActive").value as? [Bool] {
-                print(activeDays)
                 cell.updateActiveDayLabels(days: activeDays)
             }
             
@@ -118,6 +132,33 @@ class AlarmsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         return UITableViewCell()
 	}
+    
+    
+    // Displays a message notifying the user that the alarm was created
+    func displayAlarmCreated() {
+        if let alarmCreatedImage = UIImage(named: "AlarmCreatedMessage") {
+            let imageView = UIImageView(image: alarmCreatedImage)
+            let mainView = UIView(frame: CGRect(x: view.frame.size.width/2 - imageView.frame.width/2,
+                                                 y: view.frame.size.height - 180,
+                                                 width: alarmCreatedImage.size.width,
+                                                 height: alarmCreatedImage.size.height))
+            mainView.addSubview(imageView)
+            view.addSubview(mainView)
+            imageView.alpha = 0
+            
+            // Displays then hides the created alarm message
+            UIView.animate(withDuration: 1.5, animations: {
+                imageView.alpha = 1
+            }, completion: { (completed) in
+                if completed {
+                    UIView.animate(withDuration: 1.5, animations: {
+                        imageView.alpha = 0
+                    }, completion: nil)
+                }
+            })
+        }
+        
+    }
     
 
 	

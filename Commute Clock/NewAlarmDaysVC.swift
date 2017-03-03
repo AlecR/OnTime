@@ -36,8 +36,7 @@ class NewAlarmDaysVC: UIViewController {
     @IBAction func backPressed(_ sender: Any) {
         //dismiss(animated: true, completion: nil)
         dismiss(animated: true, completion: {
-            let notificationName = Notification.Name("toHome")
-            NotificationCenter.default.post(name: notificationName, object: nil)
+            NotificationCenter.default.post(name: Notification.Name.Names.ToAlarms, object: nil)
         })
     }
     
@@ -46,8 +45,8 @@ class NewAlarmDaysVC: UIViewController {
             alarm.setActiveDays(days: daysSelected)
             DataService.shared.saveAlarmToDatabase(alarm: alarm)
             dismiss(animated: true, completion: {
-                let notificationName = Notification.Name("toHome")
-                NotificationCenter.default.post(name: notificationName, object: nil)
+                NotificationCenter.default.post(name: Notification.Name.Names.ToAlarms, object: nil)
+                NotificationCenter.default.post(name: Notification.Name.Names.DisplayCreatedAlarmMessage, object: nil)
             })
         } else {
             displayAlert(title: "Error", message: "Unable to create alarm, try again.", buttonText: "Ok")
