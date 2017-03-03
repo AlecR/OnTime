@@ -32,8 +32,7 @@ class NewAlarmVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         // Sets intial value for ArrivalTimeCell
         timePickerChanged(timePicker: timePicker)
         
-        let notificationName = Notification.Name("toHome")
-        NotificationCenter.default.addObserver(self, selector: #selector(self.toHome), name: notificationName, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.toAlarms), name: Notification.Name.Names.ToAlarms, object: nil)
 		
     }
 	
@@ -181,7 +180,7 @@ class NewAlarmVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     }
     
     // Clears all inputs and goes to home tab. Used after an alarm is created.
-    func toHome() {
+    func toAlarms() {
 
         if let destinationCell = tableView.cellForRow(at: IndexPath(row: 1, section: 0)) as? DestinationCell {
             destinationCell.resetCell()
@@ -196,7 +195,8 @@ class NewAlarmVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         timePicker.setDate(Date(), animated: false)
         timePickerChanged(timePicker: timePicker)
         
-        tabBarController?.selectedIndex = 0
+        
+        tabBarController?.selectedIndex = 1
     }
 	
     

@@ -27,6 +27,7 @@
 		E36583B01E2C10F1001E96B8 /* ArrivalTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36583AF1E2C10F1001E96B8 /* ArrivalTimeCell.swift */; };
 		E36583B41E2C2D84001E96B8 /* DestinationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36583B31E2C2D84001E96B8 /* DestinationCell.swift */; };
 		E36583B61E2D03D1001E96B8 /* DestinationMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36583B51E2D03D1001E96B8 /* DestinationMapVC.swift */; };
+		E36585111E69183D006CE554 /* NotificationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36585101E69183D006CE554 /* NotificationExtensions.swift */; };
 		E3AFA6551E4CD20800AF94F1 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AFA6541E4CD20800AF94F1 /* UIViewControllerExtensions.swift */; };
 		E3D19A251E4C0644001A0303 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3D19A241E4C0644001A0303 /* GoogleService-Info.plist */; };
 		E3D19A271E4C1B74001A0303 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D19A261E4C1B74001A0303 /* Constants.swift */; };
@@ -56,6 +57,7 @@
 		E36583AF1E2C10F1001E96B8 /* ArrivalTimeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrivalTimeCell.swift; sourceTree = "<group>"; };
 		E36583B31E2C2D84001E96B8 /* DestinationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestinationCell.swift; sourceTree = "<group>"; };
 		E36583B51E2D03D1001E96B8 /* DestinationMapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestinationMapVC.swift; sourceTree = "<group>"; };
+		E36585101E69183D006CE554 /* NotificationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationExtensions.swift; sourceTree = "<group>"; };
 		E3AFA6541E4CD20800AF94F1 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		E3D19A241E4C0644001A0303 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E3D19A261E4C1B74001A0303 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 			children = (
 				E3D19A261E4C1B74001A0303 /* Constants.swift */,
 				E3AFA6541E4CD20800AF94F1 /* UIViewControllerExtensions.swift */,
+				E36585101E69183D006CE554 /* NotificationExtensions.swift */,
 				E35D85A21E5E9BC5007125F4 /* Helper.swift */,
 				E32F9BED1E5FDFB3004ADA42 /* DataService.swift */,
 			);
@@ -307,6 +310,7 @@
 				E32F9BEE1E5FDFB3004ADA42 /* DataService.swift in Sources */,
 				E3AFA6551E4CD20800AF94F1 /* UIViewControllerExtensions.swift in Sources */,
 				E3124ACD1E2877BA008A2AF9 /* AlarmsVC.swift in Sources */,
+				E36585111E69183D006CE554 /* NotificationExtensions.swift in Sources */,
 				E3D19A271E4C1B74001A0303 /* Constants.swift in Sources */,
 				E36583A91E2C0E65001E96B8 /* Alarm.swift in Sources */,
 				E316FB861E2DBF6900A45631 /* HomeVC.swift in Sources */,
