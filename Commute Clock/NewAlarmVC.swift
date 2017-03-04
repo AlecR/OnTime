@@ -12,6 +12,7 @@ import FirebaseDatabase
 
 class NewAlarmVC: UIViewController, UITableViewDelegate, UITableViewDataSource, DestinationMapVCDelegate, UIGestureRecognizerDelegate {
 
+
 	@IBOutlet weak var timePicker: UIDatePicker!
 	@IBOutlet weak var tableView: UITableView!
     
@@ -161,6 +162,7 @@ class NewAlarmVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
                 alert.addAction(okAction)
                 self.present(alert, animated: true, completion: nil)
             } else {
+
                 location = selectedDestination!
                 if let prepTimeCellInput = ((tableView.cellForRow(at: IndexPath(row: 2, section: 0))) as? PrepTimeCell)?.prepTimeInput.text {
                     if let prepTime = Int(prepTimeCellInput) {
@@ -254,8 +256,6 @@ class NewAlarmVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         if let tapView = touch.view {
-            print(tapView)
-            print(tapView.superview)
             if tapView is DestinationCell || tapView.superview is DestinationCell {
                 return false
             }
@@ -263,9 +263,7 @@ class NewAlarmVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         return true
         
     }
-    
-    
-    
+
 	
     
 }
