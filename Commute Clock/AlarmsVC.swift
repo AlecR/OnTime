@@ -41,10 +41,6 @@ class AlarmsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         })
         
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        displayAlarmCreated()
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

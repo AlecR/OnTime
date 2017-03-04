@@ -10,10 +10,12 @@ import UIKit
 import GooglePlaces
 import FirebaseDatabase
 
-class NewAlarmVC: UIViewController, UITableViewDelegate, UITableViewDataSource, DestinationMapVCDelegate {
+class NewAlarmVC: UIViewController, UITableViewDelegate, UITableViewDataSource, DestinationMapVCDelegate, UIGestureRecognizerDelegate {
 
 	@IBOutlet weak var timePicker: UIDatePicker!
 	@IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet var keyboardHeightLayoutConstraint: NSLayoutConstraint?
 	
 	var pickerTime: String = ""
     
@@ -33,7 +35,19 @@ class NewAlarmVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         timePickerChanged(timePicker: timePicker)
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.toAlarms), name: Notification.Name.Names.ToAlarms, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: Notification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: Notification.Name.UIKeyboardWillHide, object: nil)
+        
+        let hideKeyboardGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(keyboardWillHide))
+        view.addGestureRecognizer(hideKeyboardGesture)
+        hideKeyboardGesture.delegate = self
 		
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(Notification.Name.UIKeyboardWillShow)
+        NotificationCenter.default.removeObserver(Notification.Name.UIKeyboardWillHide)
     }
 	
 	
@@ -146,7 +160,7 @@ class NewAlarmVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
                 let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
                 alert.addAction(okAction)
                 self.present(alert, animated: true, completion: nil)
-            }else {
+            } else {
                 location = selectedDestination!
                 if let prepTimeCellInput = ((tableView.cellForRow(at: IndexPath(row: 2, section: 0))) as? PrepTimeCell)?.prepTimeInput.text {
                     if let prepTime = Int(prepTimeCellInput) {
@@ -198,6 +212,60 @@ class NewAlarmVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         
         tabBarController?.selectedIndex = 1
     }
+    
+    /*
+     *****************************
+     Keyboard Handling Functions
+     *****************************
+     */
+    
+    func keyboardWillShow(notification: NSNotification) {
+        if let userInfo = notification.userInfo {
+            let endFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+            let duration:TimeInterval = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
+            let animationCurveRawNSN = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber
+            let animationCurveRaw = animationCurveRawNSN?.uintValue ?? UIViewAnimationOptions.curveEaseInOut.rawValue
+            let animationCurve:UIViewAnimationOptions = UIViewAnimationOptions(rawValue: animationCurveRaw)
+            if (endFrame?.origin.y)! >= UIScreen.main.bounds.size.height {
+                self.keyboardHeightLayoutConstraint?.constant = 0.0
+            } else {
+                if let frameHeight = endFrame?.size.height, let currentBottomSpacing = keyboardHeightLayoutConstraint?.constant {
+                    self.keyboardHeightLayoutConstraint?.constant = frameHeight - currentBottomSpacing
+                } else {
+                    self.keyboardHeightLayoutConstraint?.constant = 0
+                }
+                
+            }
+            UIView.animate(withDuration: duration,
+                           delay: TimeInterval(0),
+                           options: animationCurve,
+                           animations: { self.view.layoutIfNeeded() },
+                           completion: nil)
+        }
+    }
+    
+    func keyboardWillHide() {
+        
+        if let prepTimeCell = tableView.cellForRow(at: IndexPath(row: 2, section: 0)) as? PrepTimeCell {
+            prepTimeCell.dismissKeyboard()
+        }
+        keyboardHeightLayoutConstraint?.constant = 47
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        if let tapView = touch.view {
+            print(tapView)
+            print(tapView.superview)
+            if tapView is DestinationCell || tapView.superview is DestinationCell {
+                return false
+            }
+        }
+        return true
+        
+    }
+    
+    
+    
 	
     
 }

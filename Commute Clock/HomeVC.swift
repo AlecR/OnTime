@@ -41,7 +41,8 @@ class HomeVC: UIViewController {
 		
 		directions.calculate { (response, error) in
 			if error != nil {
-				print("ALEC: Error getting directions")
+                // TODO: Make this an error message
+				print("Error getting directions")
 			} else {
 				if let response = response {
 					let routes = response.routes
