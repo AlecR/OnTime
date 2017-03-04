@@ -8,13 +8,16 @@
 
 import UIKit
 
+
 class PrepTimeCell: UITableViewCell, UITextFieldDelegate {
+
 
     @IBOutlet weak var prepTimeInput: UITextField!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = .none
+
         prepTimeInput.delegate = self
         
     }
@@ -28,7 +31,7 @@ class PrepTimeCell: UITableViewCell, UITextFieldDelegate {
     func resetCell() {
         prepTimeInput.text = ""
     }
-    
+
     func textFieldDidBeginEditing(_ textField: UITextField) {
         NotificationCenter.default.post(name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
     }
@@ -36,5 +39,6 @@ class PrepTimeCell: UITableViewCell, UITextFieldDelegate {
     func dismissKeyboard() {
         prepTimeInput.resignFirstResponder()
     }
+
 
 }
