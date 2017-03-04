@@ -104,7 +104,6 @@ class DestinationMapVC: UIViewController, MKMapViewDelegate, CLLocationManagerDe
     }
 	
 	func back() {
-		print("called")
 		self.dismiss(animated: true, completion: nil)
 	}
 	

@@ -13,5 +13,7 @@ extension Notification.Name {
     enum Names {
         static let ToAlarms = Notification.Name(rawValue: "toAlarms")
         static let DisplayCreatedAlarmMessage = Notification.Name(rawValue: "displayCreatedAlarmMessage")
+        static let KeyboardDidShow = Notification.Name(rawValue: "keyboardDidShow")
+        static let KeyboardDidHide = Notification.Name(rawValue: "keyboardDidHide")
     }
 }
