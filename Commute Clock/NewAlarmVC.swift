@@ -26,6 +26,8 @@ class NewAlarmVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
 	override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.addSubview(GradientHeaderView.instanceFromNib(title: "New Alarm"))
+        
         tableView.delegate = self
 		tableView.dataSource = self
 		

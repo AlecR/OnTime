@@ -15,6 +15,14 @@ class NewAlarmDaysVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let headerView = GradientHeaderView.instanceFromNib(title: "New Alarm")
+        let backButton = UIButton(frame: CGRect(x: 14, y: 30, width: 40, height: 20))
+        backButton.setTitle("Back", for: .normal)
+        backButton.titleLabel?.font = UIFont(name: "AvenirNext-Light", size: 15)
+        backButton.titleLabel?.textColor = UIColor.white
+        backButton.addTarget(self, action: #selector(backPressed(_:)), for: .touchUpInside)
+        headerView.addSubview(backButton)
+        view.addSubview(headerView)
 
     }
 
@@ -35,9 +43,7 @@ class NewAlarmDaysVC: UIViewController {
     
     @IBAction func backPressed(_ sender: Any) {
         //dismiss(animated: true, completion: nil)
-        dismiss(animated: true, completion: {
-            NotificationCenter.default.post(name: Notification.Name.Names.ToAlarms, object: nil)
-        })
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func createAlarmPressed(_ sender: Any) {

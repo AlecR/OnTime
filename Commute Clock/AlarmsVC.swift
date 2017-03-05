@@ -18,33 +18,34 @@ class AlarmsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.displayAlarmCreated), name: Notification.Name.Names.DisplayCreatedAlarmMessage, object: nil)
+        view.addSubview(GradientHeaderView.instanceFromNib(title: "Alarms"))
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         
         
         
-        DataService.shared.CURRENT_USER_REF.observeSingleEvent(of: .value, with: { (snapshot) in
+        DataService.shared.CURRENT_USER_REF.observe(.value, with: { (snapshot) in
             
             var alarms = [FIRDataSnapshot]()
             
             for data in snapshot.children {
                 alarms.append(data as! FIRDataSnapshot)
+                
             }
             
             // Sorts alarms by time (early to late)
             alarms.sort { $1.childSnapshot(forPath: "arrivalTime").value as! Int > $0.childSnapshot(forPath: "arrivalTime").value as! Int }
-
+            
             
             self.alarmData = alarms
             self.tableView.reloadData()
-            
-            NotificationCenter.default.addObserver(self, selector: #selector(self.displayAlarmCreated), name: Notification.Name.Names.DisplayCreatedAlarmMessage, object: nil)
+        })
+        DataService.shared.CURRENT_USER_REF.observeSingleEvent(of: .value, with: { (snapshot) in
             
         })
         
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 	
     /*
